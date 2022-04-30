@@ -2,10 +2,10 @@ import Header from "../header";
 import Sidebar from "../Sidebar";
 import { Container, SidebarContainer, Contentcontainer } from './styles';
 
-function Layout({ children }) {
+function Layout({ children }: any) {
   return (
     <>
-    <Header> </Header>
+    <Header/>
 
     <Container>
 
@@ -14,9 +14,7 @@ function Layout({ children }) {
       </Contentcontainer>
 
       <SidebarContainer>
-        <Sidebar>
-          
-        </Sidebar>
+        <Sidebar/>
       </SidebarContainer>
 
     </Container>

@@ -9,18 +9,18 @@ function Header() {
       <Container>
 
         <Logocontainer>
-          <Image src='/img/logo-me-salva.svg' width={161} height={60}/>
+          <Image src='/img/logo-me-salva.svg' width={161} height={60} alt=''/>
         </Logocontainer>
 
         <Conter>
 
           <OptionsContainer>
             <Avatar> 
-              <img src="	https://cdn.mesalva.com/img/user/anonymous/avatar-min.svg" width={45} height={45} />
+              <Image src="https://cdn.mesalva.com/img/user/anonymous/avatar-min.svg" width={45} height={45} alt=''/>
             </Avatar>
 
             <Nav>
-              <Image src='/img/nav.svg' width={31} height={31} />
+              <Image src='/img/nav.svg' width={31} height={31} alt='' />
             </Nav>
           
             <Search/>
