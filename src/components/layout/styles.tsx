@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 89vw;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  position: absolute;
+  top: 67px;
   display: flex;
   justify-content: flex-start;
   flex: 1 1 auto;
-  padding: 70px;
+  // padding: 12px 70px;
 `;
 
 export const SidebarContainer = styled.div`
@@ -13,10 +16,8 @@ export const SidebarContainer = styled.div`
 `;
 
 export const Contentcontainer = styled.div`
-  flex: 1;
   margin: 0 auto;
-  padding: 50px 20px;
-  display: flex;
-  max-width: 1194px;
+  padding: 7px;
+  width: 100%;
 `;
 

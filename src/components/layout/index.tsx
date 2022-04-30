@@ -8,14 +8,14 @@ function Layout({ children }: any) {
     <Header/>
 
     <Container>
-
-      <Contentcontainer>
+      { children }
+      {/* <Contentcontainer>
         { children }
       </Contentcontainer>
 
       <SidebarContainer>
         <Sidebar/>
-      </SidebarContainer>
+      </SidebarContainer> */}
 
     </Container>
 

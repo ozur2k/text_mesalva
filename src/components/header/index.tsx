@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Container, Logocontainer, Conter, OptionsContainer, Avatar, Nav  } from './styles';
 
-import Search from '../micro/inputs/search'
 
 function Header() {
   return (
@@ -23,8 +22,7 @@ function Header() {
               <Image src='/img/nav.svg' width={31} height={31} alt='' />
             </Nav>
           
-            <Search/>
-
+    
           </OptionsContainer>
 
 
