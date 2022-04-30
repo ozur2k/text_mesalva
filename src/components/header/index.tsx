@@ -16,7 +16,7 @@ function Header() {
 
           <OptionsContainer>
             <Avatar> 
-               <Image src='/img/avatar-min.svg' width={45} height={45} alt=''/>  
+              <Image src="/img/avatar-min.svg" width={45} height={45} alt=''/>
             </Avatar>
 
             <Nav>
