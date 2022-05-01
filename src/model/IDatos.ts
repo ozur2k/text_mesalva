@@ -22,16 +22,17 @@ interface pagination{
   itemsPerPage: number
   totalItems: number
 }
-export interface IDatos{
+export interface ICursos{
   meta: meta
   result: result
   pagination:pagination
 }
-
-export interface resultChildrenDetalles{
+export interface IDataresultConteudo{
+  [key: string]: string //| number
+}
+export interface resultChildrenConteudo{
   type: string
-  title: string
-  slug: string
+  data: IDataresultConteudo
 
 }
 interface resultDetalles {
@@ -39,9 +40,9 @@ interface resultDetalles {
   type: string
   slug: string
   description: string
-  children: resultChildrenDetalles[]
+  children: resultChildrenConteudo[]
 }
-export interface IDetalleDato{
+export interface ICursoConteudos{
   meta: meta
   result: resultDetalles
   pagination?:pagination

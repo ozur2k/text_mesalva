@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react'
 import {ItemLista} from './ItemLista'
 
 import api from '../../services/api';
-import { IDetalleDato } from '../../model/IDatos';
+import { ICursos } from '../../model/IDatos';
 import { Titulos } from '../../components/micro/Titulos';
 
 
 export const Lista = () => {
 
-  const [datosDetalles, setDatosDetalles] = useState<IDetalleDato | undefined>(undefined)
+  const [datosDetalles, setDatosDetalles] = useState<ICursos | undefined>(undefined)
 
   const getList = async() => {
     const result = await api.get('desafio-mesalva-web').then(res => {
-      console.log('resultado')
+      console.log('Curso detalles')
       console.log(res.data)
       setDatosDetalles(res.data)
     }).catch( error => {

@@ -1,21 +1,23 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
+import { ContenidoChildrens } from '../../components/aprendizado/ContenidoChildrens';
 import { Lista } from '../../components/aprendizado/Lista'
 import Contenido from '../../components/Contenido';
 import Layout from '../../components/layout'
 
 import { SidebarContainer, Contentcontainer } from '../../components/layout/styles';
 import { Titulos } from '../../components/micro/Titulos';
-import { IDatos } from '../../model/IDatos';
+import { ICursoConteudos } from '../../model/IDatos';
 
 import api from '../../services/api';
 
 const Curso = () => {
-  const [datos, setDatos] = useState<IDatos | undefined>(undefined)
+  const [datos, setDatos] = useState<ICursoConteudos | undefined>(undefined)
   
   const getList = async() => {
-    const result = await api.get('desafio-mesalva-web').then(res => {
-      //console.log(res.data)
+    const result = await api.get('desafio-mesalva-web/introducao-a-geografia').then(res => {
+      console.log('Curso contenido')
+      console.log(res.data)
       setDatos(res.data)
     }).catch( error => {
       console.log('algo salio mal')
@@ -32,7 +34,7 @@ const Curso = () => {
     <>
       <Layout> 
         <Contentcontainer>
-          <Contenido  >
+          <Contenido>
             {datos && 
               <>
                <Titulos tamano={2}> 
@@ -41,7 +43,10 @@ const Curso = () => {
               <Titulos tamano={4} parrafo> 
                 {datos.result.description}
               </Titulos>
-              <img src="https://static.vakinha.com.br/uploads/vakinha/image/126396/IMG-20170212-WA0002.jpg?ims=700x410" /> 
+              
+              {datos.result.children.map(
+                (item, i) => <ContenidoChildrens key={i} type={item.type} index={i} contenido={item.data}/>)}
+              
               </>
             }
           </Contenido>
@@ -58,15 +63,5 @@ const Curso = () => {
 export default Curso
 
 /*
-
-const result = axios.get('https://bff-qa.mesalva.com/json/pages/desafio-mesalva-web')
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  }
-  );
+<img src="https://static.vakinha.com.br/uploads/vakinha/image/126396/IMG-20170212-WA0002.jpg?ims=700x410" /> 
 */
