@@ -1,25 +1,25 @@
 import Image from "next/image";
-import { Container, Logocontainer, Conter, OptionsContainer, Avatar, Nav  } from './styles';
+import { Content, Logocontainer, Conter, OptionsContainer, Avatar, Nav  } from './styles';
 
 
 function Header() {
   return (
     <>
-      <Container>
+      <Content>
 
         <Logocontainer>
-          <Image src='/img/logo-me-salva.svg' width={161} height={60} alt=''/>
+          <Image src='/img/logo-me-salva.svg' width={161} height={60}/>
         </Logocontainer>
 
         <Conter>
 
           <OptionsContainer>
             <Avatar> 
-              <Image src="/img/avatar-min.svg" width={45} height={45} alt=''/>
+              <Image src="/img/avatar-min.svg" width={45} height={45}/>
             </Avatar>
 
             <Nav>
-              <Image src='/img/nav.svg' width={31} height={31} alt='' />
+              <Image src='/img/nav.svg' width={31} height={31}/>
             </Nav>
           
     
@@ -28,7 +28,7 @@ function Header() {
 
         </Conter>
 
-      </Container>
+      </Content>
 
     </>
   );

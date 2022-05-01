@@ -1,6 +1,5 @@
 import Header from "../header";
-import Sidebar from "../Sidebar";
-import { Container, SidebarContainer, Contentcontainer } from './styles';
+import { Container } from './styles';
 
 function Layout({ children }: any) {
   return (
@@ -9,14 +8,6 @@ function Layout({ children }: any) {
 
     <Container>
       { children }
-      {/* <Contentcontainer>
-        { children }
-      </Contentcontainer>
-
-      <SidebarContainer>
-        <Sidebar/>
-      </SidebarContainer> */}
-
     </Container>
 
   </>
@@ -24,3 +15,11 @@ function Layout({ children }: any) {
 }
 
 export default Layout;
+
+{/* <Contentcontainer>
+        { children }
+      </Contentcontainer>
+
+      <SidebarContainer>
+        <Sidebar/>
+      </SidebarContainer> */}

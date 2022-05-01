@@ -4,11 +4,11 @@ import {ItemLista} from './ItemLista'
 export const Lista = () => {
   return (
     <>
-      <ItemLista />
-      <ItemLista />
-      <ItemLista />
-      <ItemLista />
-      <ItemLista />
+      <ItemLista key="001"/>
+      <ItemLista key="002"/>
+      <ItemLista key="003"/>
+      <ItemLista key="004"/>
+      <ItemLista key="005"/>
     </>
   )
 }

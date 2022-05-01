@@ -8,7 +8,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   flex: 1 1 auto;
-  // padding: 12px 70px;
 `;
 
 export const SidebarContainer = styled.div`
