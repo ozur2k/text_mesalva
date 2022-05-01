@@ -1,14 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {ItemLista} from './ItemLista'
 
+import api from '../../services/api';
+import { IDetalleDato } from '../../model/IDatos';
+import { Titulos } from '../../components/micro/Titulos';
+
+
 export const Lista = () => {
+
+  const [datosDetalles, setDatosDetalles] = useState<IDetalleDato | undefined>(undefined)
+
+  const getList = async() => {
+    const result = await api.get('desafio-mesalva-web').then(res => {
+      console.log('resultado')
+      console.log(res.data)
+      setDatosDetalles(res.data)
+    }).catch( error => {
+      console.log('algo salio mal')
+      return 'error'
+    })
+    return result
+  }
+  useEffect(() => {
+    getList()
+  }, [])
+
+
+
+
   return (
     <>
-      <ItemLista key="001"/>
-      <ItemLista key="002"/>
-      <ItemLista key="003"/>
-      <ItemLista key="004"/>
-      <ItemLista key="005"/>
+      {datosDetalles && 
+      <>
+          {datosDetalles.result.children.map((item, i) => <ItemLista type='ggg' title={item.title} slug='dd' key={i}/>)}
+      </> 
+      }
     </>
   )
 }
+
+/*
+<Titulos tamano={5}> 
+          {datosDetalles.result.type} 
+          </Titulos>
+          <Titulos tamano={4}> 
+          {datosDetalles.result.title} 
+          </Titulos>
+       
+        
+        
+        <Titulos tamano={5}> 
+        {datosDetalles.result.type} 
+        </Titulos>
+        <Titulos tamano={4}> 
+        {datosDetalles.result.title} 
+        </Titulos>
+
+*/

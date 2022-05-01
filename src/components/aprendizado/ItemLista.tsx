@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { resultChildrenDetalles } from '../../model/IDatos';
 import { Icons } from '../micro/Icons';
 
 const Conteiner = styled.div`
@@ -18,7 +19,8 @@ const ConteIcons = styled.div`
   margin-bottom: 8px;
 `;
 
-export const ItemLista = () => {
+export const ItemLista = ({type, title}:resultChildrenDetalles) => {
+
   return (
     <>
       <Conteiner>
@@ -28,7 +30,10 @@ export const ItemLista = () => {
           </Icons>
         </ConteIcons>
         <div>
-          <h3> 1. Apresentação do Curso</h3>
+          {title && 
+          <h3> {title}</h3>
+          }
+          
           <h6>
             <i>play</i>
             <b>5m</b>

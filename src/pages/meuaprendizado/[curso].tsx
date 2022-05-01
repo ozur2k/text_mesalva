@@ -1,21 +1,22 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Lista } from '../../components/aprendizado/Lista'
 import Contenido from '../../components/Contenido';
 import Layout from '../../components/layout'
 
 import { SidebarContainer, Contentcontainer } from '../../components/layout/styles';
 import { Titulos } from '../../components/micro/Titulos';
+import { IDatos } from '../../model/IDatos';
 
 import api from '../../services/api';
 
-
-
-function Curso() {
-
+const Curso = () => {
+  const [datos, setDatos] = useState<IDatos | undefined>(undefined)
+  
   const getList = async() => {
     const result = await api.get('desafio-mesalva-web').then(res => {
-      console.log(res.data)
+      //console.log(res.data)
+      setDatos(res.data)
     }).catch( error => {
       console.log('algo salio mal')
       return 'error'
@@ -31,16 +32,18 @@ function Curso() {
     <>
       <Layout> 
         <Contentcontainer>
-          <Contenido titulo='Titulo' descricion='juan' >
-            <>
-              <Titulos tamano={2}> 
-                Titulo del documento
+          <Contenido  >
+            {datos && 
+              <>
+               <Titulos tamano={2}> 
+                {datos.result.title}
               </Titulos>
               <Titulos tamano={4} parrafo> 
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste rem magni cum itaque doloremque incidunt fugiat alias temporibus autem, consectetur impedit fugit commodi, minima, numquam totam nihil placeat a repudiandae? 
+                {datos.result.description}
               </Titulos>
               <img src="https://static.vakinha.com.br/uploads/vakinha/image/126396/IMG-20170212-WA0002.jpg?ims=700x410" /> 
-            </>
+              </>
+            }
           </Contenido>
         </Contentcontainer>
 
