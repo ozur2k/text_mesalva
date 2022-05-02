@@ -1,8 +1,9 @@
 import React from 'react'
 import { IDataresultConteudo } from '../../model/IDatos'
 import { Icons } from '../micro/Icons'
+import parse from 'html-react-parser'
+import Button from '../micro/Button'
 import { Titulos } from '../micro/Titulos'
-
 interface props{
   type: string
   contenido: IDataresultConteudo
@@ -11,12 +12,9 @@ interface props{
 export const ContenidoChildrens = (props: props) => {
   const {type, contenido, index} = props
   
-  const elementos = Object.keys(contenido) 
-
-  interface propsFormat{itemAtributo: string}
   const FormatContenido = (): JSX.Element =>{
     
-    let result: React.ReactNode = <span></span>
+    let result: JSX.Element = <span></span>
     if (type == 'video') {
       const idVideo = contenido['link'].split('v=')[1]
       const linkVideo = 'https://www.youtube.com/embed/' + idVideo 
@@ -29,27 +27,29 @@ export const ContenidoChildrens = (props: props) => {
     }
     if (type == 'text') {
       result = <>
-        {contenido['html']}
-        
+        <Titulos tamano={2}> 
+                {contenido['title']}
+        </Titulos>
+        {parse(contenido['html'])}
       </>
     }
     if (type == 'pdf') {
-      result = <Titulos tamano={4}>
+      result = 
         <>
-          <a href={contenido['link']}>
+          <Button>
             <Icons>picture_as_pdf</Icons>
-          </a>
-          
+            <a href={contenido['link']} target="_blank" rel="noopener noreferrer" 
+                style={{paddingLeft: 5, textDecoration: 'none', color: '#fff'}} >
+              ver Documento Pdf
+            </a>
+          </Button>
         </>
-      </Titulos>
     }
     return result
   }
   return (
     <>
-      
-      <FormatContenido/>
-      
+      <FormatContenido/>      
     </>
   )
 }

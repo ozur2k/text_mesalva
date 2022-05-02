@@ -37,12 +37,12 @@ const Curso = () => {
           <Contenido>
             {datos && 
               <>
-               <Titulos tamano={2}> 
+               {/* <Titulos tamano={2}> 
                 {datos.result.title}
               </Titulos>
               <Titulos tamano={4} parrafo> 
                 {datos.result.description}
-              </Titulos>
+              </Titulos> */}
               
               {datos.result.children.map(
                 (item, i) => <ContenidoChildrens key={i} type={item.type} index={i} contenido={item.data}/>)}
