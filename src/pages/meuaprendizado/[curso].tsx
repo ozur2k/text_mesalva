@@ -6,7 +6,6 @@ import Contenido from '../../components/Contenido';
 import Layout from '../../components/layout'
 
 import { SidebarContainer, Contentcontainer } from '../../components/layout/styles';
-import { Titulos } from '../../components/micro/Titulos';
 import { ICursoConteudos } from '../../model/IDatos';
 
 import api from '../../services/api';
@@ -14,8 +13,9 @@ import api from '../../services/api';
 const Curso = () => {
   const [datos, setDatos] = useState<ICursoConteudos | undefined>(undefined)
   
-  const getList = async() => {
-    const result = await api.get('desafio-mesalva-web/introducao-a-geografia').then(res => {
+  const getList = async(slugCurso?: string) => {
+    const urlSlug = slugCurso? slugCurso: 'introducao-a-geografia'
+    const result = await api.get('desafio-mesalva-web/'+ urlSlug).then(res => {
       console.log('Curso contenido')
       console.log(res.data)
       setDatos(res.data)
@@ -29,7 +29,6 @@ const Curso = () => {
     getList()
   }, [])
 
- 
   return (
     <>
       <Layout> 
@@ -37,23 +36,15 @@ const Curso = () => {
           <Contenido>
             {datos && 
               <>
-               {/* <Titulos tamano={2}> 
-                {datos.result.title}
-              </Titulos>
-              <Titulos tamano={4} parrafo> 
-                {datos.result.description}
-              </Titulos> */}
-              
               {datos.result.children.map(
                 (item, i) => <ContenidoChildrens key={i} type={item.type} index={i} contenido={item.data}/>)}
-              
               </>
             }
           </Contenido>
         </Contentcontainer>
 
         <SidebarContainer>
-          <Lista />
+          <Lista updateContenido={getList}/>
         </SidebarContainer>
       </Layout> 
     </>
@@ -61,7 +52,3 @@ const Curso = () => {
 }
 
 export default Curso
-
-/*
-<img src="https://static.vakinha.com.br/uploads/vakinha/image/126396/IMG-20170212-WA0002.jpg?ims=700x410" /> 
-*/

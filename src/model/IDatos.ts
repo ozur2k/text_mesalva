@@ -3,7 +3,7 @@ interface meta {
   title:string
   description: string
 }
-interface resultChildren{
+export interface resultChildren{
   type: string
   title: string
   slug: string

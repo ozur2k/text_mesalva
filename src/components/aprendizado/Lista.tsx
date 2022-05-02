@@ -3,10 +3,11 @@ import {ItemLista} from './ItemLista'
 
 import api from '../../services/api';
 import { ICursos } from '../../model/IDatos';
-import { Titulos } from '../../components/micro/Titulos';
 
-
-export const Lista = () => {
+interface props{
+  updateContenido: (slugCurso?: string | undefined) => Promise<string | void>
+}
+export const Lista = ({updateContenido}: props) => {
 
   const [datosDetalles, setDatosDetalles] = useState<ICursos | undefined>(undefined)
 
@@ -25,35 +26,15 @@ export const Lista = () => {
     getList()
   }, [])
 
-
-
-
   return (
     <>
       {datosDetalles && 
       <>
-          {datosDetalles.result.children.map((item, i) => <ItemLista type='ggg' title={item.title} slug='dd' key={i}/>)}
+          {datosDetalles.result.children.map((item, i) => 
+                  <ItemLista data={item} key={i}
+                            updateContenido={updateContenido}/> )}
       </> 
       }
     </>
   )
 }
-
-/*
-<Titulos tamano={5}> 
-          {datosDetalles.result.type} 
-          </Titulos>
-          <Titulos tamano={4}> 
-          {datosDetalles.result.title} 
-          </Titulos>
-       
-        
-        
-        <Titulos tamano={5}> 
-        {datosDetalles.result.type} 
-        </Titulos>
-        <Titulos tamano={4}> 
-        {datosDetalles.result.title} 
-        </Titulos>
-
-*/

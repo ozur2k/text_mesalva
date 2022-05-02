@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { resultChildrenDetalles } from '../../model/IDatos';
+import { resultChildren } from '../../model/IDatos';
 import { Icons } from '../micro/Icons';
 
 const Conteiner = styled.div`
@@ -19,11 +19,15 @@ const ConteIcons = styled.div`
   margin-bottom: 8px;
 `;
 
-export const ItemLista = ({type, title}:resultChildrenDetalles) => {
-
+interface props{
+  updateContenido: (slugCurso?: string | undefined) => Promise<string | void>
+  data: resultChildren
+}
+export const ItemLista = ({data, updateContenido}:props) => {
+  const {type, title} = data
   return (
     <>
-      <Conteiner>
+      <Conteiner onClick={() => updateContenido(data.slug)}>
         <ConteIcons>
           <Icons> 
           play_circle_filled
