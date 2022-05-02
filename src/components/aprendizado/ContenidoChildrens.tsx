@@ -1,5 +1,5 @@
-import React from 'react'
-import { IDataresultConteudo } from '../../model/IDatos'
+import React, {useState} from 'react'
+import { IDataresultConteudo, IOpcRespuestas } from '../../model/IDatos'
 import { Icons } from '../micro/Icons'
 import parse from 'html-react-parser'
 import Button from '../micro/Button'
@@ -11,9 +11,8 @@ interface props{
 }
 export const ContenidoChildrens = (props: props) => {
   const {type, contenido, index} = props
-  
+  const [mostrarCorreccion, setMostrarCorreccion] = useState(false)
   const FormatContenido = (): JSX.Element =>{
-    
     let result: JSX.Element = <span></span>
     if (type == 'video') {
       const idVideo = contenido['link'].split('v=')[1]
@@ -45,6 +44,24 @@ export const ContenidoChildrens = (props: props) => {
           </Button>
         </>
     }
+    if (type == 'exercise') {
+      const opcSelecCorrecta = (isCorrect: boolean): boolean => {
+        setMostrarCorreccion(isCorrect)
+        //alert('holaaaa')
+        return isCorrect
+      }
+      result = <>
+        {parse(contenido['question'])}
+        {contenido['answers']?.map((item, i) => 
+                <OpcRespuestasPreguntas key={i} text={item.text} isCorrect={item.isCorrect} 
+                opcSelecCorrecta={opcSelecCorrecta}/>)}
+        { mostrarCorreccion &&
+          <>
+          {parse(contenido['correction'])}
+          </>
+        }
+      </>
+    }
     return result
   }
   return (
@@ -53,3 +70,18 @@ export const ContenidoChildrens = (props: props) => {
     </>
   )
 }
+
+
+const OpcRespuestasPreguntas = ({text, isCorrect, opcSelecCorrecta}:IOpcRespuestas) => {
+
+  return (
+    <>
+      <div>
+        <input type="radio" name={'radio-opc'} id={text}  value={text}
+              onClick={() => opcSelecCorrecta?opcSelecCorrecta(isCorrect): undefined}/>
+        <label>{text}</label>
+      </div>
+    </>
+  )
+}
+

@@ -27,8 +27,14 @@ export interface ICursos{
   result: result
   pagination:pagination
 }
+export interface IOpcRespuestas{
+  text: string,
+  isCorrect: boolean
+  opcSelecCorrecta?: (isCorrect: boolean) => boolean
+}
 export interface IDataresultConteudo{
-  [key: string]: string //| number
+  answers?: IOpcRespuestas[],
+  [key: string]:  string | any
 }
 export interface resultChildrenConteudo{
   type: string
