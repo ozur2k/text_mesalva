@@ -3,6 +3,19 @@ import {ItemLista} from './ItemLista'
 
 import api from '../../services/api';
 import { ICursos } from '../../model/IDatos';
+import styled from 'styled-components';
+import { Titulos } from '../micro/Titulos';
+
+
+export const P = styled.div`
+  display: flex;
+  
+  text-align: center;
+  background-color: #ed4343;
+  color:#fff;
+  padding: 20px;
+  border: solid 1px #d64d4d;
+`;
 
 interface props{
   updateContenido: (slugCurso?: string | undefined) => Promise<string | void>
@@ -28,6 +41,11 @@ export const Lista = ({updateContenido}: props) => {
 
   return (
     <>
+      <P>
+      <Titulos tamano={3}>
+        Geografia
+      </Titulos>
+      </P>
       {datosDetalles && 
       <>
           {datosDetalles.result.children.map((item, i) => 

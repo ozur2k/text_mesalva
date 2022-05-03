@@ -9,6 +9,20 @@ interface props{
   contenido: IDataresultConteudo
   index: number
 }
+
+const OpcRespuestasPreguntas = ({text, isCorrect, opcSelecCorrecta}:IOpcRespuestas) => {
+
+  return (
+    <>
+      <div className='quest'>
+        <input type="checkbox" name={'radio-opc'} id={text}  value={text}
+              onClick={() => opcSelecCorrecta?opcSelecCorrecta(isCorrect): undefined}/>
+        <label>{text}</label>
+      </div>
+    </>
+  )
+}
+
 export const ContenidoChildrens = (props: props) => {
   const {type, contenido, index} = props
   const [mostrarCorreccion, setMostrarCorreccion] = useState(false)
@@ -18,7 +32,7 @@ export const ContenidoChildrens = (props: props) => {
       const idVideo = contenido['link'].split('v=')[1]
       const linkVideo = 'https://www.youtube.com/embed/' + idVideo 
       result = <>
-      <iframe width="97%" height="100%" key={'video-'+index}
+      <iframe width="100%" height="100%" key={'video-'+index}
         src={linkVideo}>
       </iframe>
       </>
@@ -72,16 +86,5 @@ export const ContenidoChildrens = (props: props) => {
 }
 
 
-const OpcRespuestasPreguntas = ({text, isCorrect, opcSelecCorrecta}:IOpcRespuestas) => {
 
-  return (
-    <>
-      <div>
-        <input type="radio" name={'radio-opc'} id={text}  value={text}
-              onClick={() => opcSelecCorrecta?opcSelecCorrecta(isCorrect): undefined}/>
-        <label>{text}</label>
-      </div>
-    </>
-  )
-}
 

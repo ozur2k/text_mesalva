@@ -1,22 +1,84 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: calc(100vh - 70px);
   position: absolute;
   top: 67px;
   display: flex;
   justify-content: flex-start;
   flex: 1 1 auto;
+  
 `;
 
 export const SidebarContainer = styled.div`
   flex: 0 0 250px;
 `;
+export const Footer = styled.div`
+  height: 30px;
+  width: 30px;
+  
+`;
 
 export const Contentcontainer = styled.div`
-  margin: 0 auto;
   padding: 7px;
   width: 100%;
+  margin: 20px center;
+  margin-top: 20px;
+  >.quest{
+    
+    margin: auto;
+    display: flex;
+    border: solid 1px #ccc;
+    padding: 10px;
+    width: 25%;
+    >label{
+      margin:0 20px;
+      
+    } 
+  }
+  >div{
+    text-align: center; 
+    margin-top: 20px;
+    margin-bottom: 40px ;
+  }
+  >iframe{
+    margin-top: -27px ;
+  }
+  >h1{
+    
+    text-align: center; 
+  }
+  >h2{
+    text-align: center;
+  }
+  >h3{
+    text-align: center;
+  }
+  >ol{
+    margin-right: 10px;
+    margin: 5px 15%;
+  }
+  >li{
+    margin: 0 40px; 
+  }
+  >ul{
+    margin: 20px 0;
+    margin: 5px 15%;
+  }
+  >p{
+    
+    margin: 40px 15%;
+    
+    >img{
+      display: flex;
+      margin: 0 auto;
+    }
+    >strong{
+      justify-content: center;
+      display: flex;
+    }
+  }
+ 
 `;
 

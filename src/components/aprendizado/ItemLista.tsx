@@ -2,14 +2,28 @@ import React from 'react'
 import styled from 'styled-components';
 import { resultChildren } from '../../model/IDatos';
 import { Icons } from '../micro/Icons';
+import { Lista } from './Lista';
 
-const Conteiner = styled.div`
+const Conteiner = styled.button`
   display: flex;
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  margin-top: 4px;
   h3{
     margin: 8px 0;
+    text-align: left
   }
   h6{
     margin: 8px 0; 
+    text-align: left;
+  }
+  :hover{
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+  :focus{
+    background-color: #e0e0e0;
   }
 `;
 
@@ -39,10 +53,11 @@ export const ItemLista = ({data, updateContenido}:props) => {
           }
           
           <h6>
-            <i>play</i>
+            <i>play </i>
             <b>5m</b>
           </h6>
         </div>
+        <br />
       </Conteiner>
     </>
   )
