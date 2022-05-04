@@ -10,13 +10,14 @@ export const Container = styled.div`
   justify-content: flex-start;
   flex: 1 1 auto;
   min-height: 80%;
-  
+  background-color: black
 `;
 
 
 
 //-----------------------Footer-------------- 
 export const Footer = styled.footer`
+    justify-content: baseline;
     margin-top: 16px;
     flex-shrink: 0;
     align-items: center;
@@ -25,13 +26,27 @@ export const Footer = styled.footer`
     width: 100%;
     height: 64px; 
     background-color: #ed4343;
-
-    /* position: fixed;
-    bottom: 0px; */
-    >h3{
-      text-align:center;
-      padding: 20px 0 ;
+    text-align: center;
+    padding: 10px;
+    >fieldset{
+      border-color: #e7dede;
+      width: 80%;
+      border-bottom-style: unset;
+      margin: auto;
+      border-left-style: unset;
+      border-right-style: unset;
     }
+    >p{
+      text-align:center;
+      margin: 2px 0;
+    }
+    >a{
+      margin:0 15px;
+    }
+    >span{
+      align-items: center;
+    }
+
 `;
 
 //-----------------------Curso-------------- 
@@ -46,7 +61,7 @@ export const SidebarContainer = styled.div`
 export const Contentcontainer = styled.div`
   width: 100%;
   overflow-y: auto;
-  
+
   >.quest{
     
     margin: auto;

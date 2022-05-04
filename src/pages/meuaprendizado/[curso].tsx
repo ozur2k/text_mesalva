@@ -5,21 +5,22 @@ import { Lista } from '../../components/aprendizado/Lista'
 import Layout from '../../components/layout'
 
 import { SidebarContainer, Contentcontainer, Footer } from '../../components/layout/styles';
+import { Icons } from '../../components/micro/Icons';
 import { ICursoConteudos } from '../../model/IDatos';
 
 import api from '../../services/api';
 
-
 const Body = styled.div`
   height: 0;
   margin: 0;
-  
-  
 `;
 const Contenedor = styled.div`
     display: flex;
-    flex-direction: row ;
-    
+    flex-direction: row ; 
+    @media(max-width: 800px) {
+    flex-direction: column;
+   // position: relative;
+  }
 `;
 
 
@@ -47,6 +48,7 @@ const Curso = () => {
      
       <Body>  
       <Layout bFotter={false}>
+        <>
         <Contenedor>
           <Contentcontainer>
               
@@ -57,7 +59,7 @@ const Curso = () => {
                 <br />
                 </>
               }
-               {/* <Footer><h3>Footer</h3></Footer> */}
+               
           </Contentcontainer>
           
           <SidebarContainer>
@@ -65,9 +67,19 @@ const Curso = () => {
             
           </SidebarContainer>
           
-          
         </Contenedor>
-      </Layout>   
+        <Footer>
+               <p>Copyright @2022 | Me Salva! Cursos e Consultorias Ltda.</p>
+                <fieldset> </fieldset>
+                <a>Home</a>
+                <a>Ajuda</a>
+                <a>Planos</a>
+                <a>Termos de Uso</a>
+                <Icons color={'white'}>whatsapp</Icons>
+               </Footer>
+        
+        </>
+        </Layout>   
       </Body>
       
     </>

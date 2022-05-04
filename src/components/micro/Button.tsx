@@ -14,10 +14,14 @@ const ButtonStyle = styled.button`
     margin: auto;
     
 `;
-const Button = ({children}: any) => {
+interface props extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
+  children: React.ReactElement
+}
+const Button = (props: props) => {
+  const {children, onClick} = props
   return (
     <>
-      <ButtonStyle>
+      <ButtonStyle onClick={onClick}>
         {children}
       </ButtonStyle>
     </>

@@ -1,5 +1,6 @@
 import styled, { CSSProperties } from "styled-components";
 import Header from "../header";
+import { Icons } from "../micro/Icons";
 import { Container, Footer} from './styles';
 
 interface props{
@@ -17,7 +18,13 @@ function Layout(props: props) {
         </div>
         { bFotter &&
           <Footer>
-            <h3>Footer</h3>
+            <p>Copyright @2022 | Me Salva! Cursos e Consultorias Ltda.</p>
+                <fieldset> </fieldset>
+                <a>Home</a>
+                <a>Ajuda</a>
+                <a>Planos</a>
+                <a>Termos de Uso</a>
+                <Icons color={'white'}>whatsapp</Icons>
           </Footer>
         }
         

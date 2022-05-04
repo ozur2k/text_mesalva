@@ -15,7 +15,7 @@ const OpcRespuestasPreguntas = ({text, isCorrect, opcSelecCorrecta}:IOpcRespuest
   return (
     <>
       <div className='quest'>
-        <input type="checkbox" name={'radio-opc'} id={text}  value={text}
+        <input type="radio" name={'radio-opc'} id={text}  value={text}
               onClick={() => opcSelecCorrecta?opcSelecCorrecta(isCorrect): undefined}/>
         <label>{text}</label>
       </div>
@@ -26,6 +26,8 @@ const OpcRespuestasPreguntas = ({text, isCorrect, opcSelecCorrecta}:IOpcRespuest
 export const ContenidoChildrens = (props: props) => {
   const {type, contenido, index} = props
   const [mostrarCorreccion, setMostrarCorreccion] = useState(false)
+
+  const [btnActive, setBtnActive] = useState(false)
   
   const FormatContenido = (): JSX.Element =>{
     let result: JSX.Element = <span></span>
@@ -34,7 +36,7 @@ export const ContenidoChildrens = (props: props) => {
       const linkVideo = 'https://www.youtube.com/embed/' + idVideo 
       result = <>
       <iframe width="100%" height="100%" key={'video-'+index}
-        src={linkVideo}>
+        src={linkVideo} className='video-yotube'>
       </iframe>
       </>
       
@@ -51,11 +53,14 @@ export const ContenidoChildrens = (props: props) => {
       result = 
         <>
           <Button>
-            <Icons>picture_as_pdf</Icons>
+            <>
+            <Icons color="#fff">picture_as_pdf</Icons>
             <a href={contenido['link']} target="_blank" rel="noopener noreferrer" 
                 style={{paddingLeft: 5, textDecoration: 'none', color: '#fff'}} >
               ver Documento Pdf
             </a>
+            </>
+            
           </Button>
           
         </>
@@ -63,6 +68,7 @@ export const ContenidoChildrens = (props: props) => {
     if (type == 'exercise') {
       const opcSelecCorrecta = (isCorrect: boolean): boolean => {
         setMostrarCorreccion(isCorrect)
+        setBtnActive(false)
         //alert('holaaaa')
         return isCorrect
       }
@@ -71,15 +77,22 @@ export const ContenidoChildrens = (props: props) => {
         {contenido['answers']?.map((item, i) => 
                 <OpcRespuestasPreguntas key={i} text={item.text} isCorrect={item.isCorrect} 
                 opcSelecCorrecta={opcSelecCorrecta}/>)}
-        { mostrarCorreccion &&
+        { btnActive && 
           <>
-          {parse(contenido['correction'])}
+           { !mostrarCorreccion?
+              parse(contenido['correction'])
+            :
+            <Titulos tamano={5} >
+              Parabens
+            </Titulos>
+           }
           </>
         }
         { 
           <>
           <br />
-            <Button style={{textAlign: 'center'}}>
+          <button></button>
+            <Button style={{textAlign: 'center'}} onClick={ () => setBtnActive(true)}>
               <a style={{textAlign: 'center',paddingLeft: 5, textDecoration: 'none', color: '#fff'}} >
               Responder
               </a>

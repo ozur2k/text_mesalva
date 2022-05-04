@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { resultChildren } from '../../model/IDatos';
+import { ICursos, resultChildren } from '../../model/IDatos';
 import { Icons } from '../micro/Icons';
 import { Lista } from './Lista';
 
@@ -38,24 +38,25 @@ const ConteIcons = styled.div`
 interface props{
   updateContenido: (slugCurso?: string | undefined) => Promise<string | void>
   data: resultChildren
+  index: number
+  updateCookie: (itemLista: resultChildren, index: number) => void
 }
-export const ItemLista = ({data, updateContenido}:props) => {
+export const ItemLista = ({data, updateContenido, index, updateCookie}:props) => {
   const {type, title} = data
+
+  const controlClick = () => {
+    updateContenido(data.slug)
+    updateCookie(data, index)
+  }
   return (
     <>
-      <Conteiner onClick={() => updateContenido(data.slug)}>
+      <Conteiner onClick={() => controlClick()}>
         <ConteIcons>
-          <Icons> 
-            {/* if ( == 'text') {
-              
+          <Icons color={data.asistido?'#f14141':'#978c8c' }> 
+            {(data.type == 'text')? 'description':
+             (data.type == 'video')? 'play_circle_filled':
+             'quiz'
             }
-            if (type == 'video') {
-              
-            }
-            if (type == 'pdf') {
-              
-            } */}
-          play_circle_filled
           </Icons>
         </ConteIcons>
         <div>

@@ -7,6 +7,7 @@ export interface resultChildren{
   type: string
   title: string
   slug: string
+  asistido?: boolean
 }
 
 interface result {
