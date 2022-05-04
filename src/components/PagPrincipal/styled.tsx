@@ -1,35 +1,51 @@
 import styled from 'styled-components';
 
 export const Globals = styled.div`
-  top: 67px;
-  height: 100vh;
+  box-sizing: border-box;
 `;
 
 export const Header = styled.div`
-  
+
+  >img{
+    width: 100%;
+    height: 100%;
+    max-height: 581px;
+  }
   
 `;
 
 export const ListCursos = styled.div`
   
+  display: grid;
+  gap: 0.5rem;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  
+  
   
 `;
 
 export const Curso = styled.div`
-  background-color: rgb(255, 255, 255);
-  color: rgba(0, 0, 0, 0.87);
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+
   overflow: hidden;
-  min-width: 275px;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,0.4);
+  color: #333;
+  margin: 10px;
   
+  >span {
+    color: gray;
+    background-color: red ;
+  }
   >img{
     width: 100%;
+    height: 60%;
+  
   }
-  >p{
-    padding: 2rem;
+  >h3{
+    text-align: center;
+    margin: 10px 0;
   }
   
-  margin-left: 2rem;
 `;
