@@ -46,7 +46,7 @@ const Curso = () => {
     <>
      
       <Body>  
-      <Layout></Layout> 
+      <Layout bFotter={false}>
         <Contenedor>
           <Contentcontainer>
               
@@ -57,7 +57,7 @@ const Curso = () => {
                 <br />
                 </>
               }
-               <Footer><h3>Footer</h3></Footer>
+               {/* <Footer><h3>Footer</h3></Footer> */}
           </Contentcontainer>
           
           <SidebarContainer>
@@ -67,7 +67,7 @@ const Curso = () => {
           
           
         </Contenedor>
-        
+      </Layout>   
       </Body>
       
     </>

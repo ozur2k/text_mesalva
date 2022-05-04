@@ -6,9 +6,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Layout>
+        <PagPrincipal></PagPrincipal>
       </Layout>
-
-      <PagPrincipal></PagPrincipal>
 
     </>
   )

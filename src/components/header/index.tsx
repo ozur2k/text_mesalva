@@ -7,7 +7,7 @@ function Header() {
     <>
       <Content>
  
-        <Logocontainer>
+        <Logocontainer href="http://localhost:3000/">
           <Image src='/img/logo-me-salva.svg' width={161} height={60}/>
         </Logocontainer>
 

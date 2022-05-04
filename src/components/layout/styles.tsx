@@ -13,9 +13,11 @@ export const Container = styled.div`
   
 `;
 
+
+
 //-----------------------Footer-------------- 
 export const Footer = styled.footer`
-    
+    margin-top: 16px;
     flex-shrink: 0;
     align-items: center;
     color: white;
@@ -23,6 +25,9 @@ export const Footer = styled.footer`
     width: 100%;
     height: 64px; 
     background-color: #ed4343;
+
+    /* position: fixed;
+    bottom: 0px; */
     >h3{
       text-align:center;
       padding: 20px 0 ;

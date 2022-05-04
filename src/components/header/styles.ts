@@ -10,7 +10,7 @@ export const Content = styled.div`
     box-shadow: rgb(0 0 0 / 18%) 0px 5px 7px;
 `;
 
-export const Logocontainer = styled.div`
+export const Logocontainer = styled.a`
     cursor: pointer;
     margin: 5px 10px;
 `;
