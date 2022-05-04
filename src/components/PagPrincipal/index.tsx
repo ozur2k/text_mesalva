@@ -10,7 +10,7 @@ const PagPrincipal = () => {
 
   const data: ICard[] = [
     {titulo: 'Geografia', descrip: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, culpa.', urlImg: '/img/maxresdefault.jpg', Bloqueado: false,
-     link: 'http://localhost:3000/meuaprendizado/introducao-a-geografia'},
+     link: '/meuaprendizado/introducao-a-geografia'},
     {titulo: 'Geografia II', descrip: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, culpa.', urlImg: '/img/maxresdefault.jpg', Bloqueado: true},
     {titulo: 'Geografia III', descrip: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, culpa.', urlImg: '/img/maxresdefault.jpg', Bloqueado: true},
     {titulo: 'Geografia IV', descrip: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, culpa.', urlImg: '/img/maxresdefault.jpg', Bloqueado: true}

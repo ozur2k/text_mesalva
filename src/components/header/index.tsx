@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Content, Logocontainer, OptionsContainer, Avatar, Nav  } from './styles';
 
 
@@ -6,9 +7,12 @@ function Header() {
   return (
     <>
       <Content>
- 
-        <Logocontainer href="http://localhost:3000/">
-          <Image src='/img/logo-me-salva.svg' width={161} height={60}/>
+
+        <Logocontainer>
+          <Link href='/' passHref> 
+           <Image src='/img/logo-me-salva.svg' width={161} height={60}/>
+          </Link>
+          
         </Logocontainer>
 
         

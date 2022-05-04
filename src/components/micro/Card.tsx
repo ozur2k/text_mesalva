@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 import styled from 'styled-components';
 import { Icons } from './Icons';
@@ -29,6 +30,7 @@ const Card = (props: ICard) => {
   const {titulo, urlImg, descrip, Bloqueado, link} = props
   return (
     <>
+      <Link href={Bloqueado?'#!':link?link:'#!'} passHref > 
       <a href={Bloqueado?undefined:link} style={{textDecoration: 'none'}}>
         <Curso>
           <img src="/img/maxresdefault.jpg" alt="" />
@@ -38,7 +40,7 @@ const Card = (props: ICard) => {
             <Icons color={Bloqueado? 'red': 'green'}>{Bloqueado? 'lock': 'lock_open'}</Icons>
         </Curso> 
       </a>
-      
+      </Link>
     </>
   )
 }
