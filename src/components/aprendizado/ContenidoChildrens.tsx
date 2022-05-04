@@ -26,6 +26,7 @@ const OpcRespuestasPreguntas = ({text, isCorrect, opcSelecCorrecta}:IOpcRespuest
 export const ContenidoChildrens = (props: props) => {
   const {type, contenido, index} = props
   const [mostrarCorreccion, setMostrarCorreccion] = useState(false)
+  
   const FormatContenido = (): JSX.Element =>{
     let result: JSX.Element = <span></span>
     if (type == 'video') {
@@ -56,6 +57,7 @@ export const ContenidoChildrens = (props: props) => {
               ver Documento Pdf
             </a>
           </Button>
+          
         </>
     }
     if (type == 'exercise') {
@@ -74,13 +76,27 @@ export const ContenidoChildrens = (props: props) => {
           {parse(contenido['correction'])}
           </>
         }
+        { 
+          <>
+          <br />
+            <Button style={{textAlign: 'center'}}>
+              <a style={{textAlign: 'center',paddingLeft: 5, textDecoration: 'none', color: '#fff'}} >
+              Responder
+              </a>
+            </Button>
+                
+          </>
+        }
+
+
       </>
     }
     return result
   }
   return (
     <>
-      <FormatContenido/>      
+      <FormatContenido/>  
+         
     </>
   )
 }

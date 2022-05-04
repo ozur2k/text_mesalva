@@ -11,13 +11,13 @@ const ButtonStyle = styled.button`
     border: solid 1px #fff;
     border-radius: 20px;
     cursor: pointer;
-    margin: auto ;
+    margin: auto;
     
 `;
 const Button = ({children}: any) => {
   return (
     <>
-      <ButtonStyle >
+      <ButtonStyle>
         {children}
       </ButtonStyle>
     </>

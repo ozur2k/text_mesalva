@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+//-----------------------layaut-------------- 
 export const Container = styled.div`
   width: 100%;
   height: calc(100vh - 70px);
@@ -8,30 +9,47 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   flex: 1 1 auto;
+  min-height: 80%;
   
 `;
+
+//-----------------------Footer-------------- 
+export const Footer = styled.footer`
+    
+    flex-shrink: 0;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+    width: 100%;
+    height: 64px; 
+    background-color: #ed4343;
+    >h3{
+      text-align:center;
+      padding: 20px 0 ;
+    }
+`;
+
+//-----------------------Curso-------------- 
+
 
 export const SidebarContainer = styled.div`
-  flex: 0 0 250px;
-`;
-export const Footer = styled.div`
-  height: 30px;
-  width: 30px;
+  background-color: #fff ;
   
 `;
 
+
 export const Contentcontainer = styled.div`
-  padding: 7px;
   width: 100%;
-  margin: 20px center;
-  margin-top: 20px;
+  overflow-y: auto;
+  
   >.quest{
     
     margin: auto;
     display: flex;
     border: solid 1px #ccc;
     padding: 10px;
-    width: 25%;
+    width: 30%;
+
     >label{
       margin:0 20px;
       
@@ -43,7 +61,9 @@ export const Contentcontainer = styled.div`
     margin-bottom: 40px ;
   }
   >iframe{
-    margin-top: -27px ;
+     
+     width: 100%;
+     height: 85%;
   }
   >h1{
     

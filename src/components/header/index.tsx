@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { Content, Logocontainer, Conter, OptionsContainer, Avatar, Nav  } from './styles';
+import { Content, Logocontainer, OptionsContainer, Avatar, Nav  } from './styles';
 
 
 function Header() {
   return (
     <>
       <Content>
-
+ 
         <Logocontainer>
           <Image src='/img/logo-me-salva.svg' width={161} height={60}/>
         </Logocontainer>
 
-        <Conter>
+        
 
           <OptionsContainer>
             <Avatar> 
@@ -19,14 +19,14 @@ function Header() {
             </Avatar>
 
             <Nav>
-              <Image src='/img/nav.svg' width={31} height={31}/>
+              <Image src='/img/nav.svg' width={40} height={40}/>
             </Nav>
           
     
           </OptionsContainer>
 
 
-        </Conter>
+        
 
       </Content>
 

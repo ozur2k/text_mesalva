@@ -7,19 +7,20 @@ import { Lista } from './Lista';
 const Conteiner = styled.button`
   display: flex;
   width: 100%;
-  background-color: #fff;
+  background-color: #fff; 
   border: none;
-  margin-top: 4px;
+  
   h3{
     margin: 8px 0;
     text-align: left
+    
   }
   h6{
     margin: 8px 0; 
     text-align: left;
   }
   :hover{
-    background-color: #e0e0e0;
+    background-color: #e0e0e0  ;
     cursor: pointer;
   }
   :focus{
@@ -29,7 +30,8 @@ const Conteiner = styled.button`
 
 const ConteIcons = styled.div`
   margin-top: 10px ;
-  margin-right:  5px;
+  margin-right:  10px;
+  margin-left:  10px;
   margin-bottom: 8px;
 `;
 
@@ -44,6 +46,15 @@ export const ItemLista = ({data, updateContenido}:props) => {
       <Conteiner onClick={() => updateContenido(data.slug)}>
         <ConteIcons>
           <Icons> 
+            {/* if ( == 'text') {
+              
+            }
+            if (type == 'video') {
+              
+            }
+            if (type == 'pdf') {
+              
+            } */}
           play_circle_filled
           </Icons>
         </ConteIcons>

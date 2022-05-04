@@ -8,13 +8,14 @@ import { Titulos } from '../micro/Titulos';
 
 
 export const P = styled.div`
-  display: flex;
-  
-  text-align: center;
-  background-color: #ed4343;
+  background-color: #e93636db;
   color:#fff;
   padding: 20px;
-  border: solid 1px #d64d4d;
+  border-style: none;
+  width: 100%;
+  text-align: center;
+  border-bottom: solid 3px  #c9c9c9db;
+  
 `;
 
 interface props{
@@ -42,8 +43,8 @@ export const Lista = ({updateContenido}: props) => {
   return (
     <>
       <P>
-      <Titulos tamano={3}>
-        Geografia
+      <Titulos tamano={4}>
+        <h2>Geografia</h2> 
       </Titulos>
       </P>
       {datosDetalles && 

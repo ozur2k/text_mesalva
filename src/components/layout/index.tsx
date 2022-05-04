@@ -1,25 +1,15 @@
+import styled, { CSSProperties } from "styled-components";
 import Header from "../header";
-import { Container } from './styles';
+import { Container, Footer} from './styles';
 
-function Layout({ children }: any) {
+
+function Layout() {
   return (
     <>
-    <Header/>
-
-    <Container>
-      { children }
-    </Container>
-
-  </>
+        <Header ></Header>
+    </>
   );
 }
 
 export default Layout;
 
-{/* <Contentcontainer>
-        { children }
-      </Contentcontainer>
-
-      <SidebarContainer>
-        <Sidebar/>
-      </SidebarContainer> */}

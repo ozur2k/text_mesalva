@@ -1,14 +1,27 @@
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components';
 import { ContenidoChildrens } from '../../components/aprendizado/ContenidoChildrens';
 import { Lista } from '../../components/aprendizado/Lista'
-import Contenido from '../../components/Contenido';
 import Layout from '../../components/layout'
 
-import { SidebarContainer, Contentcontainer } from '../../components/layout/styles';
+import { SidebarContainer, Contentcontainer, Footer } from '../../components/layout/styles';
 import { ICursoConteudos } from '../../model/IDatos';
 
 import api from '../../services/api';
+
+
+const Body = styled.div`
+  height: 0;
+  margin: 0;
+  
+  
+`;
+const Contenedor = styled.div`
+    display: flex;
+    flex-direction: row ;
+    
+`;
+
 
 const Curso = () => {
   const [datos, setDatos] = useState<ICursoConteudos | undefined>(undefined)
@@ -31,24 +44,34 @@ const Curso = () => {
 
   return (
     <>
-      <Layout> 
-        <Contentcontainer>
-          <Contenido>
-            {datos && 
-              <>
-              {datos.result.children.map(
-                (item, i) => <ContenidoChildrens key={i} type={item.type} index={i} contenido={item.data}/>)}
-              </>
-            }
-          </Contenido>
-        </Contentcontainer>
-
-        <SidebarContainer>
-          <Lista updateContenido={getList}/>
-        </SidebarContainer>
-      </Layout> 
+     
+      <Body>  
+      <Layout></Layout> 
+        <Contenedor>
+          <Contentcontainer>
+              
+              {datos && 
+                <>
+                {datos.result.children.map(
+                  (item, i) => <ContenidoChildrens key={i} type={item.type} index={i} contenido={item.data}/>)}
+                <br />
+                </>
+              }
+               <Footer><h3>Footer</h3></Footer>
+          </Contentcontainer>
+          
+          <SidebarContainer>
+            <Lista updateContenido={getList}/>
+            
+          </SidebarContainer>
+          
+          
+        </Contenedor>
+        
+      </Body>
+      
     </>
   )
 }
 
-export default Curso
+export default Curso;
